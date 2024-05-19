@@ -5,7 +5,7 @@ import numpy as np
 
 
 def data_collection():
-    path = r"C:\Users\Kiruppazhini\Desktop\project\capstone_3\airbnb_data"
+    path = r"Please enter the path here"
     files = os.listdir(path)
 
     for i in files:
