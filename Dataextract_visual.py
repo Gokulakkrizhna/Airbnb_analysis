@@ -22,19 +22,18 @@ def streamlit():
         trace = go.Scattergeo(
             lat=list(a["longitude"]),
             lon=list(a["latitude"]),
-            mode='markers',  # Use markers to represent each point
+            mode='markers', 
             marker=dict(
                 size=10,
-                color='red',  # Marker color
+                color='red', 
                 opacity=0.8,
             ),
-            # text=['London', 'Paris', 'New York'],  # Text to display when hovering over each point
         )
 
         # Define layout options
         layout = go.Layout(
             geo=dict(
-                projection_type='natural earth',  # Choose projection type (e.g., 'mercator', 'orthographic', etc.)
+                projection_type='natural earth', 
             ),
         )
 
