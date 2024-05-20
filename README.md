@@ -54,3 +54,48 @@ To use this project, Please follow the below steps.
 ```Data Visualization```: Cleaned data has been visualized using Plotly to gain valuable insights from the datasets.
 
 ```Setup Powerbi dashboard```: The cleaned data has been analyzed and visualized using an interactive Power BI dashboard.
+
+The provided code utilizes Python scripting along with various libraries to fetch data from the our local directory. Data manipulation techniques are then applied, followed by exploratory data analysis (EDA) on the cleaned dataset to extract meaningful insights. Furthermore, the implementation includes a Streamlit web application to enhance user engagement and create an intuitive dashboard in PowerBi.
+
+Here's a breakdown of what the code does:
+- Importing all the neccessary libraries includes ```Streamlit``` which creates UI to interact with user and display the analysed data, ```Pandas``` which helps to display the analysed data in Streamlit web,```numpy``` which will help in mathematical conversion,```Plotly```  is employed to visualize the data and gain insights from it,```OS``` assists in reading data from the local directory,```JSON``` is used to load JSON files into Python,```Scipy``` aids in conducting exploratory data analysis (EDA) and extracting valuable insights.
+```bash
+import os
+import pandas as pd
+import json
+import numpy as np
+import scipy.stats as stats
+import streamlit as st
+import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+```
+- ```Datacoll_dataclean``` file is responsible for fetching data from the local directory and performing necessary data cleaning operations. **Note: Replace your actual path in ```path```**
+```bash
+path = r"please provide the path"
+```
+- ```eda_analysis``` file is responsible for exploratory data analysis (EDA) and extracting valuable insights.
+- ```Dataextract_visual``` file is used to extract the data stored in MySQL and visualize it to derive valuable insights using Plotly.
+- Five separate tabs have been implemented in the Streamlit web application to facilitate user interaction and enhance data visualization for insightful analysis.
+```bash
+tab1, tab2, tab3, tab4,tab5= st.tabs(["Home", "Geo visualization", " Website","EDA Insights","Data visualization"])
+```
+- In Tab1 of the Streamlit web application, user can select type of ```Country``` and ```No of people``` for which they need to visualize the data in Geo visualization.
+- In Tab2 of the Streamlit web application, the user-input location will be displayed using Geo visualization.
+- In Tab3, the Streamlit web application mimics the layout and functionality of the Airbnb website using the cleaned data, providing users with an interactive experience similar to browsing Airbnb listings.
+- In Tab4, exploratory data analysis (EDA) was conducted on the dataset to extract valuable insights, which are then presented to the user for further analysis and interpretation.
+- In Tab5, Cleaned data has been analyzed, and visualized to extract valuable insights.
+
+
+This Python script streamlines the process of fetching data from a local directory, implementing crucial data cleaning procedures, and conducting exploratory data analysis (EDA) to extract valuable insights. This comprehensive approach empowers users to gain valuable insights and make informed decisions based on the visualized data.
+
+## PowerBI Dashboard
+Build an user friendly PowerBI dashboard to vizualize and get an insights of an airbnb data. Explore ```Airbnb.pdf``` for in-depth analysis.
+
+# Contact
+📧 Email: [gokulakkrizhna@gmail.com](mailto:gokulakkrizhna@gmail.com)
+
+🌐 LinkedIn: [linkedin.com/in/gokulakkrizhna-s-241562159](https://www.linkedin.com/in/gokulakkrizhna-s-241562159/)
+
+For any further questions or inquiries, feel free to reach out. We are happy to assist you with any queries.
+  
