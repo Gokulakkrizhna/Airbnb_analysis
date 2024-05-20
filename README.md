@@ -1,4 +1,4 @@
-# Airbnb Analysis 
+# Airbnb Analysis Using PowerBI
 ## Overview
 This project enables users to delve into accommodation trends. After retrieving and cleaning sample data, insights are derived through exploratory data analysis (EDA). The cleaned data is then utilized for analysis and visualization of trends using Power BI.
 ## Table of Contents
