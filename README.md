@@ -45,6 +45,8 @@ To use this project, Please follow the below steps.
 
 ```Data Cleaning```: Refine pre-processing methods like Data handling is applied to the collected data.
 
+```Statistical Analysis```: Cleaned numerical data has been analysed to get a valuable insights.
+
 ```EDA Analysis```: The cleaned data has been analyzed using various exploratory data analysis (EDA) techniques, revealing insights into current trends.
 
 ```Setup the Streamlit app```: Streamlit is a user-friendly web development tool that simplifies the process of creating intuitive interfaces.
@@ -78,13 +80,14 @@ path = r"please provide the path"
 - ```Dataextract_visual``` file is used to extract the data stored in MySQL and visualize it to derive valuable insights using Plotly.
 - Five separate tabs have been implemented in the Streamlit web application to facilitate user interaction and enhance data visualization for insightful analysis.
 ```bash
-tab1, tab2, tab3, tab4,tab5= st.tabs(["Home", "Geo visualization", " Website","EDA Insights","Data visualization"])
+tab1, tab2, tab3, tab4,tab5,tab6= st.tabs(["Home", "Geo visualization", " Website","Statistical Insights","EDA Insights","Data visualization"])
 ```
 - In Tab1 of the Streamlit web application, user can select type of ```Country``` and ```No of people``` for which they need to visualize the data in Geo visualization.
 - In Tab2 of the Streamlit web application, the user-input location will be displayed using Geo visualization.
 - In Tab3, the Streamlit web application mimics the layout and functionality of the Airbnb website using the cleaned data, providing users with an interactive experience similar to browsing Airbnb listings.
-- In Tab4, exploratory data analysis (EDA) was conducted on the dataset to extract valuable insights, which are then presented to the user for further analysis and interpretation.
-- In Tab5, Cleaned data has been analyzed, and visualized to extract valuable insights.
+- In Tab4, Cleaned data has undergone Statistical analysis procedure to get a valuable insights.
+- In Tab5, exploratory data analysis (EDA) was conducted on the dataset to extract valuable insights, which are then presented to the user for further analysis and interpretation.
+- In Tab6, Cleaned data has been analyzed, and visualized to extract valuable insights.
 
 
 This Python script streamlines the process of fetching data from a local directory, implementing crucial data cleaning procedures, and conducting exploratory data analysis (EDA) to extract valuable insights. This comprehensive approach empowers users to gain valuable insights and make informed decisions based on the visualized data.
