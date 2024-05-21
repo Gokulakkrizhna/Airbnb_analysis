@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 
 
 def streamlit():
-    tab1, tab2, tab3, tab4,tab5= st.tabs(["Home", "Geo visualization", " Website","EDA Insights","Data visualization"])
+    tab1, tab2, tab3, tab4,tab5,tab6= st.tabs(["Home", "Geo visualization", " Website","Statistical Insights","EDA Insights","Data visualization"])
 
     with tab1:
         st.markdown('<h1 style="text-align: center; color: red;">Airbnb</h1>', unsafe_allow_html=True)
@@ -22,18 +22,19 @@ def streamlit():
         trace = go.Scattergeo(
             lat=list(a["longitude"]),
             lon=list(a["latitude"]),
-            mode='markers',  
+            mode='markers',  # Use markers to represent each point
             marker=dict(
                 size=10,
-                color='red', 
+                color='red',  # Marker color
                 opacity=0.8,
             ),
+            # text=['London', 'Paris', 'New York'],  # Text to display when hovering over each point
         )
 
         # Define layout options
         layout = go.Layout(
             geo=dict(
-                projection_type='natural earth', 
+                projection_type='natural earth',  # Choose projection type (e.g., 'mercator', 'orthographic', etc.)
             ),
         )
 
@@ -108,6 +109,33 @@ def streamlit():
                         st.write(f":red[Address]: {df.iloc[i]["address"]}")
 
     with tab4:
+        st.header(":red[Correlation using Heatmap]")
+        dff = a[["price","accomdates","overall_rev","tot_review","guest","min_night","max_night","no_bathroom","no_of_bedrooms"]]
+
+        correlation_matrix = dff.corr()
+
+        fig = px.imshow(correlation_matrix, text_auto=True, aspect="auto",color_continuous_scale="reds")
+
+        fig.update_layout(coloraxis_colorbar=dict(title="Correlation"))
+
+        st.plotly_chart(fig, use_container_width=True)
+
+        d = {"Category":[],"Min":[],"Max":[],"Mean":[],"Median":[],"Mode":[],"Standard Deviation":[]}
+
+        for i in ["price","accomdates","overall_rev","tot_review","guest","min_night","max_night","no_bathroom","no_of_bedrooms"]:
+            d["Category"].append(i)
+            d["Min"].append(min(a[i]))
+            d["Max"].append(max(a[i]))
+            d["Mean"].append(int(a[i].mean()))
+            d["Median"].append(a[i].median())
+            d["Mode"].append(a[i].mode()[0])
+            d["Standard Deviation"].append(a[i].std())
+
+        df = pd.DataFrame(d)
+        with st.expander("Do you like to see statistical data"):
+            st.dataframe(df)
+
+    with tab5:
         #Analysis1
         st.header(":red[Analysis of Room over Price]")
         if p < 0.05:
@@ -296,7 +324,7 @@ def streamlit():
             """.format(p10))
         
 
-    with tab5:
+    with tab6:
         st.subheader("Exploring Trends Across Countries over property, room and price")
         fig = px.sunburst(a, path=["country","prop_type","room"], values='price')
         st.plotly_chart(fig, use_container_width=True)
