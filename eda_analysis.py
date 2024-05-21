@@ -76,10 +76,26 @@ def eda(df11):
     
     statistic8,p_value8 = stats.kruskal(*price_by_bathroom.values())
 
+    #analysis of guest over price
+    price_by_guest = {}
+    for guest_category in df11['guest'].unique():
+            key = guest_category
+            price_by_guest[key] = df11[(df11['guest'] == guest_category)]['price']
+    
+    statistic9,p_value9 = stats.kruskal(*price_by_guest.values())
 
-    return p_value,p_value1,p_value2,p_value3,p_value4,p_value5,p_value6,p_value7,p_value8
+    #analysis of accomdates over price
+    price_by_accomdates = {}
+    for accomdates_category in df11['accomdates'].unique():
+            key = accomdates_category
+            price_by_accomdates[key] = df11[(df11['accomdates'] == accomdates_category)]['price']
+    
+    statistic10,p_value10 = stats.kruskal(*price_by_accomdates.values())
 
 
-df1 = a[["price","room","prop_type","bed","country","rules","cancel_pol","no_of_bedrooms","no_bathroom"]]
+    return p_value,p_value1,p_value2,p_value3,p_value4,p_value5,p_value6,p_value7,p_value8,p_value9,p_value10
 
-p,p1,p2,p3,p4,p5,p6,p7,p8 = eda(df1)
+
+df1 = a[["price","room","prop_type","bed","country","rules","cancel_pol","no_of_bedrooms","no_bathroom","guest","accomdates"]]
+
+p,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10 = eda(df1)
