@@ -1,5 +1,5 @@
 from Datacoll_dataclean import a
-from eda_analysis import p,p1,p2,p3,p4,p5,p6,p7,p8 
+from eda_analysis import p,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -22,18 +22,19 @@ def streamlit():
         trace = go.Scattergeo(
             lat=list(a["longitude"]),
             lon=list(a["latitude"]),
-            mode='markers', 
+            mode='markers',  # Use markers to represent each point
             marker=dict(
                 size=10,
-                color='red', 
+                color='red',  # Marker color
                 opacity=0.8,
             ),
+            # text=['London', 'Paris', 'New York'],  # Text to display when hovering over each point
         )
 
         # Define layout options
         layout = go.Layout(
             geo=dict(
-                projection_type='natural earth', 
+                projection_type='natural earth',  # Choose projection type (e.g., 'mercator', 'orthographic', etc.)
             ),
         )
 
@@ -260,6 +261,41 @@ def streamlit():
             - Independent
             - From this we can conclude that there is no connection between different bathroom and their prices. It is a strong evidence.           
             """.format(p8))
+
+        #Analysis10
+        st.header(":red[Analysis on No of guest allowed over price]")
+        if p9 < 0.05:
+            st.markdown("""
+            - P-Value- {0}
+            - Reject H0
+            - Dependent
+            - From this we can conclude that there is a significant connection between guest and their prices. It is a strong evidence.           
+            """.format(p9))
+        else:
+            st.markdown("""
+            - P-Value- {0}
+            - Fail to Reject H0
+            - Independent
+            - From this we can conclude that there is no connection between guest and their prices. It is a strong evidence.           
+            """.format(p9))
+
+        #Analysis11
+        st.header(":red[Analysis on No of Accomadates allowed over price]")
+        if p10 < 0.05:
+            st.markdown("""
+            - P-Value- {0}
+            - Reject H0
+            - Dependent
+            - From this we can conclude that there is a significant connection between accomadates allowed and their prices. It is a strong evidence.           
+            """.format(p10))
+        else:
+            st.markdown("""
+            - P-Value- {0}
+            - Fail to Reject H0
+            - Independent
+            - From this we can conclude that there is no connection between accomadates allowed and their prices. It is a strong evidence.           
+            """.format(p10))
+        
 
     with tab5:
         st.subheader("Exploring Trends Across Countries over property, room and price")
